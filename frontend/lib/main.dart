@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nssapp/pages/attendance.dart';
 import 'package:nssapp/pages/events.dart';
 import 'package:nssapp/pages/notifications.dart';
 import 'package:nssapp/pages/on_boarding.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         Routes.feedbackRoute: (context) => const FeedbackPage(),
         Routes.eventRoute: (context) => const EventPage(),
         Routes.calendarRoute: (context) => const EventCalendarScreen(),
+        Routes.attendanceRoute: (context) => const Attendance(),
       },
     );
   }

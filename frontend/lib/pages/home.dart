@@ -25,14 +25,8 @@ class Home extends StatelessWidget {
             TitleWithBox(
               title: "Mark your attendance",
               imagePath: "./assets/images/attendance_.png",
-              onImageOrArrowPressed: () async {
-                final url = Uri.parse(
-                    "https://nss.gymkhana.iitb.ac.in/attendance-24//");
-                if (await canLaunchUrl(url)) {
-                  await launchUrl(url);
-                } else {
-                  print("Could not launch $url");
-                }
+              onImageOrArrowPressed: () {
+                Navigator.pushNamed(context, Routes.attendanceRoute);
               },
             ),
             const SizedBox(height: 24),

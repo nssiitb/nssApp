@@ -50,7 +50,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
       "password": passwordController.text
     };
     var response = await http.post(
-        Uri.parse("http://10.51.26.80:3000/register"),
+        Uri.parse("http://127.0.0.1:3000/register"),
         headers: {"Content-Type": "application/json"},
         body: jsonEncode(regBody));
 
