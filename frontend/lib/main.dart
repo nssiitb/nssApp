@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nssapp/pages/attendanceAA.dart';
 import 'package:nssapp/pages/attendance.dart';
 import 'package:nssapp/pages/events.dart';
 import 'package:nssapp/pages/notifications.dart';
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.splashRoute,
+   initialRoute: Routes.splashRoute,
+
       routes: {
         Routes.homeRoute: (context) => const Home(),
         Routes.loginRoute: (context) => const SignIn(),
@@ -36,6 +38,7 @@ class MyApp extends StatelessWidget {
         Routes.eventRoute: (context) => const EventPage(),
         Routes.calendarRoute: (context) => const EventCalendarScreen(),
         Routes.attendanceRoute: (context) => const Attendance(),
+         Routes.attendanceAARoute: (context) => const AttendanceAA(),
       },
     );
   }

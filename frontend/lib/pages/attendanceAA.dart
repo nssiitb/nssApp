@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
-class Attendance extends StatefulWidget {
-  const Attendance({super.key});
+class AttendanceAA extends StatefulWidget {
+  const AttendanceAA({super.key});
 
   @override
-  State<Attendance> createState() => _Attendance();
+  State<AttendanceAA> createState() => _AttendanceAA();
 }
 
-class _Attendance extends State<Attendance> {
+class _AttendanceAA extends State<AttendanceAA> {
   final _formKey = GlobalKey<FormState>();
 
-  String? name, rollNo, department, phoneNumber, aaName, location;
+  String? name, Nssdepartment,   location;
   Future<void> _getlocation () async {
     Future<bool> enabled =   Geolocator.isLocationServiceEnabled() ; 
     Future<LocationPermission> permission = Geolocator.checkPermission() ; 
@@ -28,8 +28,8 @@ class _Attendance extends State<Attendance> {
   Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.medium) ; 
 
   }
-  final List<String> departments = ['Educational outreach', 'social Development', 'Campus Engagement','Environment and Sustainabilty'];
-  final List<String> aaNames = ['Select Nearby AA Name'];
+  final List<String> Nssdepartments = ['Educational outreach', 'social Development', 'Campus Engagement','Environment and Sustainabilty' ];
+ 
 
   @override
   void initState() {
@@ -62,22 +62,18 @@ class _Attendance extends State<Attendance> {
                   ),
                   const SizedBox(height: 20),
                   _buildTextField('Name', (val) => name = val),
-                  _buildTextField('Roll No', (val) => rollNo = val),
+          
                   const SizedBox(height: 10),
-                  const Text("Department:"),
+                  const Text("NssDepartment:"),
                   DropdownButtonFormField<String>(
-                    value: departments[0],
-                    items: departments.map((dep) => DropdownMenuItem(value: dep, child: Text(dep))).toList(),
-                    onChanged: (val) => department = val,
+                    value: Nssdepartments[0],
+                    items: Nssdepartments.map((dep) => DropdownMenuItem(value: dep, child: Text(dep))).toList(),
+                    onChanged: (val) => Nssdepartment = val,
                   ),
-                  _buildTextField('Phone Number', (val) => phoneNumber = val),
+
                   const SizedBox(height: 10),
-                  const Text("AA Name:"),
-                  DropdownButtonFormField<String>(
-                    value: aaNames[0],
-                    items: aaNames.map((aa) => DropdownMenuItem(value: aa, child: Text(aa))).toList(),
-                    onChanged: (val) => aaName = val,
-                  ),
+                  
+                  
                   const SizedBox(height: 10),
                   const Text("Location:"),
                   Text(location ?? 'Fetching...', style: const TextStyle(color: Colors.black54)),
@@ -90,15 +86,14 @@ class _Attendance extends State<Attendance> {
                           _formKey.currentState!.save();
                           print({
                             'name': name,
-                            'rollNo': rollNo,
-                            'department': department,
-                            'phoneNumber': phoneNumber,
-                            'aaName': aaName,
-                            'location': location,
+                           
+                            'Nssdepartment': Nssdepartment,
+                        
+                          'location': location,
                           });
                         }
                       },
-                      child: const Text('Submit'),
+                      child: const Text('Login'),
                     ),
                   ),
                 ],
@@ -128,3 +123,5 @@ class _Attendance extends State<Attendance> {
     );
   }
 }
+
+
